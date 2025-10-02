@@ -2,10 +2,10 @@
   {
     "title": "Create Story Book",
     "description": {
-      "am": "Google Gemini በተለያዩ ታሪኮች፣ በፍጠራ እና በመረጃ ቅርጸ ተንቀሳቃሽ ሁኔታ የሚረዳ የAI መድረክ ነው። አንተም የራስህን ታሪክ በመፍጠር እንዴት እንደሚገልጽ እዚህ ማየት ትችላለህ።",
-      "en": "Google Gemini is an AI platform that helps you tell stories, create ideas, and explore information in an interactive way. Here you can discover how to create your own story with Gemini."
+      "am": "Google Gemini በተለያዩ ታሪኮች፣ በፍጠራ እና በመረጃ ቅርጸ ተንቀሳቃሽ ሁኔታ የሚረዳ የAI መድረክ ነው።",
+      "en": "Google Gemini is an AI platform that helps you tell stories, create ideas, and explore information in an interactive way."
     },
-    "image": "https://henok7585-maker.github.io/Henok-Tech/images/trtret.png",
+    "image": "images/trtret.png",
     "link": "https://gemini.google/overview/storybook/"
   }
 ]
