@@ -5,50 +5,32 @@ document.addEventListener("DOMContentLoaded", () => {
   fetch("posts.json")
     .then((res) => res.json())
     .then((posts) => {
-      postsGrid.innerHTML = ""; // ባዶ አድርግ
+      postsGrid.innerHTML = "";
       posts.forEach((post) => {
-        // card ፍጠር
         const card = document.createElement("article");
         card.className = "post-card";
 
-        // image
-        const img = document.createElement("img");
-        img.src = post.image || "https://via.placeholder.com/400x200?text=No+Image";
-        img.alt = post.title || "";
-        img.className = "post-thumb";
-
-        // title
-        const h3 = document.createElement("h3");
-        h3.textContent = post.title || "Untitled";
-
-        // description
-        const p = document.createElement("p");
-        if (typeof post.description === "object") {
-          p.textContent = post.description.am || post.description.en || "";
-        } else {
-          p.textContent = post.description || "";
-        }
-
-        // link
-        const a = document.createElement("a");
-        a.href = post.link || "#";
-        a.textContent = "ይቀጥሉ / Read more";
-        a.target = "_blank";
-        a.className = "btn small";
-
-        // append
-        card.appendChild(img);
-        card.appendChild(h3);
-        card.appendChild(p);
-        card.appendChild(a);
+        card.innerHTML = `
+          <img src="${post.image}" alt="${post.title}" class="post-image"/>
+          <div class="post-content">
+            <h3>${post.title}</h3>
+            <p>${post.description.am}</p>
+            <p><em>${post.description.en}</em></p>
+            ${
+              post.link
+                ? `<a href="${post.link}" target="_blank" class="btn small">Read More</a>`
+                : ""
+            }
+          </div>
+        `;
 
         postsGrid.appendChild(card);
       });
     })
     .catch((err) => {
-      postsGrid.innerHTML = `<p style="color:red">posts.json ማንበብ አልተሳካም። (${err.message})</p>`;
+      postsGrid.innerHTML = `<p style="color:red;">Error loading posts: ${err}</p>`;
     });
 
-  // የfooter ዓመት
+  // የአመት ዘመን
   document.getElementById("year").textContent = new Date().getFullYear();
 });
