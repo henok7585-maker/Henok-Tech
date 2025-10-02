@@ -13,63 +13,21 @@
         <h1>Henok Tech</h1>
         <p class="tag">ፖስቶች, መረጃዎች እና ሊንኮች</p>
       </div>
-      <div>
-        <button id="openFormBtn" class="btn primary">አዲስ ፖስት ጨምር</button>
-      </div>
     </div>
   </header>
-
-  <!-- Add Post Modal -->
-  <div id="postModal" class="modal" aria-hidden="true">
-    <div class="modal-dialog">
-      <button class="modal-close" id="closeFormBtn" title="Close">✕</button>
-      <h2>አዲስ ፖስት ጨምር</h2>
-      <form id="postForm">
-        <label>ርዕስ (Title)
-          <input id="titleInput" required placeholder="ርዕስዎን እዚህ ያስገቡ" />
-        </label>
-
-        <label>ምስል (Image)
-          <input id="imageInput" type="file" accept="image/*" />
-        </label>
-        <div id="imagePreview" class="image-preview" aria-hidden="true"></div>
-
-        <label>ማብራሪያ (Description)
-          <textarea id="descInput" rows="4" placeholder="አጭር ማብራሪያ"></textarea>
-        </label>
-
-        <label>ሊንክ (Optional) — ወደ ሙሉ ጽሑፍ ወይም የውጭ መረጃ
-          <input id="linkInput" type="url" placeholder="https://example.com" />
-        </label>
-
-        <div class="form-actions">
-          <button type="submit" class="btn primary">አስመዝግብ</button>
-          <button type="button" id="cancelBtn" class="btn">ሰኪ</button>
-        </div>
-      </form>
-    </div>
-  </div>
 
   <!-- Main -->
   <main class="container">
     <section class="intro">
       <h2>Welcome to Henok Tech</h2>
-      <p>Henok Tech is a technology website that delivers the latest tech news, tips, tutorials, and reviews. We are here to make technology simple, practical, and accessible for everyone. On our site, you’ll find:
-
-The latest technology updates
-
-Smartphone and computer tips
-
-App and software reviews
-
-Easy-to-follow tutorials and guides
-
-
-Our main goal is to simplify technology and make it useful in your everyday life.</p>
+      <p>
+        Henok Tech is a technology website that delivers the latest tech news, tips, tutorials, and reviews. 
+        Our goal is to simplify technology and make it useful in your everyday life.
+      </p>
     </section>
 
     <section id="postsGrid" class="posts-grid" aria-live="polite">
-      <!-- posts inserted here -->
+      <!-- Posts will be loaded here from posts.json -->
     </section>
   </main>
 
@@ -80,22 +38,5 @@ Our main goal is to simplify technology and make it useful in your everyday life
   </footer>
 
   <script src="script.js"></script>
-  <script>
-  fetch("posts.json")
-    .then(response => response.json())
-    .then(data => {
-      let container = document.getElementById("posts");
-      data.forEach(post => {
-        container.innerHTML += `
-          <div class="post">
-            <h3>${post.title}</h3>
-            <p>${post.description}</p>
-            <img src="${post.image}" alt="post image" style="max-width:100%;border-radius:10px;">
-            <p><a href="${post.link}" target="_blank">Read More</a></p>
-          </div>
-        `;
-      });
-    });
-</script>
 </body>
 </html>
